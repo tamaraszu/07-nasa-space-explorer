@@ -57,9 +57,9 @@ async function fetchApodData(startDate, endDate) {
 
 function showLoading() {
   gallery.innerHTML = `
-    <div class="placeholder">
-      <div class="placeholder-icon">🚀</div>
-      <p>Loading space images...</p>
+    <div class="placeholder is-loading">
+      <div class="placeholder-icon">🔄</div>
+      <p>Loading space photos…</p>
     </div>
   `;
 }
