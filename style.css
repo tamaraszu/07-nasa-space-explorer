@@ -67,6 +67,34 @@ h1 {
   margin-right: 15px;
 }
 
+/* Random space fact banner */
+.fun-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--nasa-white);
+  border-left: 4px solid var(--nasa-red);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.fun-fact-icon {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.fun-fact p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--nasa-base);
+}
+
+.fun-fact strong {
+  color: var(--nasa-blue);
+}
+
 /* Date‐picker & button row */
 .filters {
   display: flex;
@@ -163,11 +191,70 @@ button:hover {
   }
 }
 
+.gallery-item-media {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
 .gallery-item img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* Smooth hover zoom */
+.gallery-item:hover img,
+.gallery-item:focus img {
+  transform: scale(1.08);
+}
+
+/* Video badge overlay on gallery thumbnails */
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--nasa-blue-darkest), var(--nasa-blue));
+}
+
+.video-badge {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 31, 74, 0.35);
+  pointer-events: none;
+}
+
+.video-badge-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(221, 54, 28, 0.9);
+  color: var(--nasa-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.media-type-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--nasa-red);
+  color: var(--nasa-white);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 3px;
 }
 
 .gallery-item p {
@@ -247,21 +334,58 @@ button:hover {
   height: 36px;
   border-radius: 50%;
   font-size: 22px;
-  line-height: 1;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .modal-close:hover {
   background-color: var(--nasa-red-dark);
 }
 
-.modal-content img {
+/* Square media area — image/video always fills it edge-to-edge, no letterboxing */
+.modal-media {
+  position: relative;
   width: 100%;
+  aspect-ratio: 1 / 1;
   max-height: 60vh;
-  object-fit: contain;
-  background: #000;
+  overflow: hidden;
   border-radius: 8px 8px 0 0;
+  background: var(--nasa-blue-darkest);
+}
+
+.modal-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-media iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: none;
+}
+
+.modal-video-link {
+  display: none;
+  text-align: center;
+  padding: 10px;
+  background: var(--nasa-blue-darkest);
+  color: var(--nasa-white);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.modal-video-link:hover {
+  background: var(--nasa-blue);
 }
 
 .modal-body {
